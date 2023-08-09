@@ -7,12 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="train-common" />
         <module name="train-member" />
+        <module name="train-gateway" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="train-common" options="-parameters" />
+      <module name="train-gateway" options="-parameters" />
       <module name="train-member" options="-parameters" />
       <module name="v-train-backend" options="" />
     </option>
