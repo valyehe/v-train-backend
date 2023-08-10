@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.v.mapper.TicketMapper">
+
+    <resultMap id="BaseResultMap" type="com.v.model.domain.Ticket">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="member_id" column="member_id" jdbcType="BIGINT"/>
+            <result property="passenger_id" column="passenger_id" jdbcType="BIGINT"/>
+            <result property="passenger_name" column="passenger_name" jdbcType="VARCHAR"/>
+            <result property="train_date" column="train_date" jdbcType="DATE"/>
+            <result property="train_code" column="train_code" jdbcType="VARCHAR"/>
+            <result property="carriage_index" column="carriage_index" jdbcType="INTEGER"/>
+            <result property="seat_row" column="seat_row" jdbcType="CHAR"/>
+            <result property="seat_col" column="seat_col" jdbcType="CHAR"/>
+            <result property="start_station" column="start_station" jdbcType="VARCHAR"/>
+            <result property="start_time" column="start_time" jdbcType="TIME"/>
+            <result property="end_station" column="end_station" jdbcType="VARCHAR"/>
+            <result property="end_time" column="end_time" jdbcType="TIME"/>
+            <result property="seat_type" column="seat_type" jdbcType="CHAR"/>
+            <result property="create_time" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="update_time" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,member_id,passenger_id,
+        passenger_name,train_date,train_code,
+        carriage_index,seat_row,seat_col,
+        start_station,start_time,end_station,
+        end_time,seat_type,create_time,
+        update_time
+    </sql>
+</mapper>
