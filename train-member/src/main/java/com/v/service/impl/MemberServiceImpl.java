@@ -1,6 +1,6 @@
 package com.v.service.impl;
 
-import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -11,14 +11,14 @@ import com.v.mapper.MemberMapper;
 import com.v.model.domain.Member;
 import com.v.model.dto.memberRequest.memberLoginRequest;
 import com.v.model.dto.memberRequest.memberSendCodeRequest;
+import com.v.model.vo.member.memberVo;
 import com.v.service.MemberService;
+import com.v.uitl.JwtUtil;
 import com.v.uitl.SnowUtil;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * author Admin
@@ -37,7 +37,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     VerifyCodeManager verifyCodeManager;
 
     //注册/登录接口实现
-    public long login(memberLoginRequest request) {
+    public memberVo login(memberLoginRequest request) {
         if (request == null) {
             throw new BusinessException(ErrorCode.NULL_ERROR);
         }
@@ -63,7 +63,12 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         if (!codeOk) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "验证码错误");
         }
-        return memberDb.getId();
+        //创建返回对象
+        memberVo memberVo = BeanUtil.copyProperties(memberDb, memberVo.class);
+        //设置token
+        String token = JwtUtil.createToken(memberDb.getId(), memberDb.getMobile());
+        memberVo.setToken(token);
+        return memberVo;
     }
 
     //发送验证码接口实现
@@ -96,7 +101,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         }
         //创建验证码,存入redis
         String code = verifyCodeManager.genVerifyCode(mobile);
-        log.info("验证码" + code);
+        log.info("手机号：" + mobile + "验证码：" + code);
         return !code.isEmpty();
     }
 

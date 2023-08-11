@@ -16,4 +16,6 @@ public class memberLoginRequest implements Serializable {
     @NotBlank(message = "验证码为空")
     private String code;
 
+    private String token;
+
 }

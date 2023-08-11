@@ -1,10 +1,6 @@
 package com.v.manager.redis;
 
 
-import java.io.IOException;
-import java.time.Duration;
-import java.util.Objects;
-
 import cn.hutool.core.util.RandomUtil;
 import com.v.constant.CacheConstant;
 import jakarta.annotation.Resource;
@@ -13,11 +9,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
+import java.util.Objects;
+
 /**
  * 验证码 管理类
  *
  * @author Admin
- * @date 2023/08/11
+ * date 2023/08/11
  */
 @Component
 @RequiredArgsConstructor
@@ -32,15 +31,15 @@ public class VerifyCodeManager {
      */
     public String genVerifyCode(String mobile) {
         String verifyCode = RandomUtil.randomNumbers(4);
-        stringRedisTemplate.opsForValue().set(CacheConstant.VERIFY_CODE_CACHE_KEY+mobile, verifyCode, Duration.ofMinutes(5));
+        stringRedisTemplate.opsForValue().set(CacheConstant.VERIFY_CODE_CACHE_KEY + mobile, verifyCode, Duration.ofMinutes(5));
         return verifyCode;
     }
 
     /**
      * 校验图形验证码
      */
-    public boolean VerifyCodeOk(String verifyCode,String mobile) {
-        return Objects.equals(stringRedisTemplate.opsForValue().get(CacheConstant.VERIFY_CODE_CACHE_KEY+mobile), verifyCode);
+    public boolean VerifyCodeOk(String verifyCode, String mobile) {
+        return Objects.equals(stringRedisTemplate.opsForValue().get(CacheConstant.VERIFY_CODE_CACHE_KEY + mobile), verifyCode);
     }
 
     /**

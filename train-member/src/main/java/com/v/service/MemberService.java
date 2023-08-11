@@ -4,6 +4,7 @@ import com.v.model.domain.Member;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.v.model.dto.memberRequest.memberLoginRequest;
 import com.v.model.dto.memberRequest.memberSendCodeRequest;
+import com.v.model.vo.member.memberVo;
 
 /**
  * @author Admin
@@ -13,7 +14,7 @@ import com.v.model.dto.memberRequest.memberSendCodeRequest;
 public interface MemberService extends IService<Member> {
 
     //注册接口
-    long login(memberLoginRequest request);
+    memberVo login(memberLoginRequest request);
 
     boolean sendCode(memberSendCodeRequest request);
 }
