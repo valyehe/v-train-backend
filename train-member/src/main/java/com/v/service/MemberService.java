@@ -2,6 +2,7 @@ package com.v.service;
 
 import com.v.model.domain.Member;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.v.model.dto.memberRequest.memberRegisterRequest;
 
 /**
  * @author Admin
@@ -10,6 +11,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface MemberService extends IService<Member> {
 
-    long register(String mobile);
+    //注册接口
+    long register(memberRegisterRequest request);
 
 }
