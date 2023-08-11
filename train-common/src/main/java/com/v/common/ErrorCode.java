@@ -13,7 +13,6 @@ public enum ErrorCode {
     NOT_LOGIN_ERROR(40100, "未登录"),
     NO_AUTH_ERROR(40101, "无权限"),
     NOT_FOUND_ERROR(40400, "请求数据不存在"),
-    NOT_UNIQUE_MOBILE(40200, "该电话已被注册"),
 
     /**
      * 40001 数据为空

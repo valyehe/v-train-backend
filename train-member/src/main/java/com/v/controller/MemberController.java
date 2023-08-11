@@ -2,7 +2,8 @@ package com.v.controller;
 
 import com.v.common.BaseResponse;
 import com.v.common.ResultUtils;
-import com.v.model.dto.memberRequest.memberRegisterRequest;
+import com.v.model.dto.memberRequest.memberLoginRequest;
+import com.v.model.dto.memberRequest.memberSendCodeRequest;
 import com.v.service.MemberService;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
@@ -17,9 +18,16 @@ public class MemberController {
     @Resource
     MemberService memberService;
 
-    @GetMapping("/register")
-    public BaseResponse<Long> memberRegister(@Valid memberRegisterRequest request) {
-        long result = memberService.register(request);
+    @GetMapping("/login")
+    public BaseResponse<Long> memberRegister(@Valid memberLoginRequest request) {
+        long result = memberService.login(request);
         return ResultUtils.success(result);
     }
+
+    @GetMapping("/sendCode")
+    public BaseResponse<Boolean> memberSendCode(@Valid memberSendCodeRequest request) {
+        boolean result = memberService.sendCode(request);
+        return ResultUtils.success(result);
+    }
+
 }
