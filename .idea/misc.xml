@@ -9,6 +9,11 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/batch/pom.xml" />
+        <option value="$PROJECT_DIR$/business/pom.xml" />
+        <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/generator/pom.xml" />
         <option value="$PROJECT_DIR$/train-batch/pom.xml" />
         <option value="$PROJECT_DIR$/train-common/pom.xml" />
         <option value="$PROJECT_DIR$/train-gateway/pom.xml" />
