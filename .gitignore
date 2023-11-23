@@ -1,2 +1,4 @@
 # 项目排除路径
 /target/
+/data/
+/app/src/main/resources/application-dev.yml

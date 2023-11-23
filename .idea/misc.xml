@@ -11,9 +11,10 @@
       <set>
         <option value="$PROJECT_DIR$/batch/pom.xml" />
         <option value="$PROJECT_DIR$/business/pom.xml" />
-        <option value="$PROJECT_DIR$/common/pom.xml" />
-        <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/case/pom.xml" />
         <option value="$PROJECT_DIR$/generator/pom.xml" />
+        <option value="$PROJECT_DIR$/interfaces/pom.xml" />
+        <option value="$PROJECT_DIR$/member/pom.xml" />
         <option value="$PROJECT_DIR$/train-batch/pom.xml" />
         <option value="$PROJECT_DIR$/train-common/pom.xml" />
         <option value="$PROJECT_DIR$/train-gateway/pom.xml" />

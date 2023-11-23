@@ -1,0 +1,29 @@
+server:
+  port: 9001
+
+# 日志
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+
+mybatis-flex:
+  datasource:
+    ds1:
+      url: jdbc:mysql://127.0.0.1:3306/member?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+    ds2:
+      url: jdbc:mysql://127.0.0.1:3306/business?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+    ds3:
+      url: jdbc:mysql://127.0.0.1:3306/batch?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
